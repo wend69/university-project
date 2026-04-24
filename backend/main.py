@@ -22,7 +22,7 @@ async def get_db_version():
     with get_db_session() as conn:
         with conn.cursor() as cur:
             cur.execute("SELECT version();")
-            return{"db_version": cur.fetchone()[0]}
+            return{"db_version": cur.fetchall()[0]}
 app.include_router(analytics_router)
        
     
