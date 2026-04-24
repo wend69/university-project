@@ -1,5 +1,8 @@
 from fastapi import APIRouter, HTTPException 
 from db_session import get_db_session 
+from pydantic import BaseMdel
+from typing import List
+
 
 router = APIRouter(prefix = "/analytics", tags = ["analytics"])
 

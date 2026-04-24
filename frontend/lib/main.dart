@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart'; 
-import 'package:ok/pages/index.dart';
 import 'package:ok/style/theme.dart';
+import 'package:ok/pages/analytics_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ok',
       theme: MainTheme().appTheme,
-      home: HomePage(),
+      home: const AnalyticsPage(),
     );
   }
 }

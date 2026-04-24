@@ -1,10 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware 
 from am import router as analytics_router
 from db_session import get_db_session
 
 
 app = FastAPI()
 url = ""
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 @app.get("/")
 async def get_db_version():
