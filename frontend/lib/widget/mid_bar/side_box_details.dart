@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ok/style/theme.dart';
 import 'package:ok/widget/mid_bar/pie_chart.dart';
+import 'package:ok/api_service.dart';
+
+
+
 
 class SideBoxDetails extends StatelessWidget {
-  const SideBoxDetails({super.key});
+  final AnalyticsRow data;
+  const SideBoxDetails({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,9 @@ class SideBoxDetails extends StatelessWidget {
                 children: [
                   Text(
                     "Audience Satisfaction",
-                    style: TextStyle(color: MainTheme().primaryColor),
+                    style: TextStyle(color: MainTheme.primaryColor),
                   ),
-                  Icon(Icons.more_vert, color: MainTheme().primaryColor),
+                  Icon(Icons.more_vert, color: MainTheme.primaryColor),
                 ],
               ),
               SizedBox(height: 20),
@@ -58,21 +63,21 @@ class SideBoxDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Webiners", style: TextStyle(color: Colors.grey)),
-                  Icon(Icons.more_vert, color: MainTheme().primaryColor),
+                  Icon(Icons.more_vert, color: MainTheme.primaryColor),
                 ],
               ),
               SizedBox(height: 20),
               Text(
                 "Learn how you",
-                style: TextStyle(color: MainTheme().primaryColor, fontSize: 21),
+                style: TextStyle(color: MainTheme.primaryColor, fontSize: 21),
               ),
               Text(
                 "can earn more then",
-                style: TextStyle(color: MainTheme().primaryColor, fontSize: 21),
+                style: TextStyle(color: MainTheme.primaryColor, fontSize: 21),
               ),
               Text(
                 "20% percent each month!",
-                style: TextStyle(color: MainTheme().primaryColor, fontSize: 21),
+                style: TextStyle(color: MainTheme.primaryColor, fontSize: 21),
               ),
               Text(
                 "Join our webinar and learn how",
@@ -90,7 +95,7 @@ class SideBoxDetails extends StatelessWidget {
           ),
           Text(
             "Learn more!",
-            style: TextStyle(color: MainTheme().primaryColor, fontSize: 15),
+            style: TextStyle(color: MainTheme.primaryColor, fontSize: 15),
           ),
         ],
       ),

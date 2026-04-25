@@ -1,11 +1,14 @@
+
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:ok/style/theme.dart';
 import 'package:ok/widget/mid_bar/mid_bar_details.dart';
+import 'package:ok/api_service.dart';
 
 class MidBox extends StatelessWidget {
-  const MidBox({super.key});
+  final AnalyticsRow data;
+  const MidBox({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +21,18 @@ class MidBox extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            MainTheme().boxColor.withOpacity(0.2),
-            MainTheme().boxColor,
-            MainTheme().boxColor.withOpacity(0.2),
+            MainTheme.boxColor.withOpacity(0.2),
+            MainTheme.boxColor,
+            MainTheme.boxColor.withOpacity(0.2),
           ],
         ),
-        border: Border.all(color: MainTheme().boxBorderColor, width: 1.5),
+        border: Border.all(color: MainTheme.boxBorderColor, width: 1.5),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 16.0, left: 34, right: 34),
         child: MidBarDetails(
+          data: data, 
           boxHeight: midBoxHeight > 770
               ? midBoxHeightOriginal - 115
               : 230 - 115,
@@ -38,3 +42,4 @@ class MidBox extends StatelessWidget {
     );
   }
 }
+

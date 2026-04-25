@@ -18,7 +18,7 @@ class SideButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isSelected ? MainTheme().primaryColor : Colors.transparent,
+        color: isSelected ? MainTheme.primaryColor : Colors.transparent,
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       child: Padding(
@@ -28,7 +28,7 @@ class SideButton extends StatelessWidget {
             SizedBox(width: 70),
             Icon(
               icon,
-              color: isSelected ? Colors.white : MainTheme().primaryColor,
+              color: isSelected ? Colors.white : MainTheme.primaryColor,
             ),
             SizedBox(width: 15),
             Text(text, style: TextStyle(fontSize: 21, color: Colors.white)),

@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ok/widget/top_bar/top_box.dart';
 import '../api_service.dart';
+
+
+
+
+
+
 
 
 class AnalyticsPage extends StatefulWidget {
@@ -70,6 +77,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
             return ListView( // Use ListView to prevent "Bottom Overflow"
               padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               children: [
+                TopBox(liveData: data),
                 _buildStatCard("Total Streams", data.streams.toString(), Colors.blue),
                 const SizedBox(height: 15),
                 _buildStatCard("Engagement Rate", "${data.engagementRate}%", Colors.green),

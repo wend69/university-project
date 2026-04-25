@@ -8,7 +8,7 @@
 
 
 
-DROP TABLE IF EXISTS public.analytics;
+DROP TABLE IF EXISTS analytics.metrics;
 
 CREATE TABLE name_db (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
