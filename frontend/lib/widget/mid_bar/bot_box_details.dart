@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ok/style/theme.dart';
 import 'package:ok/api_service.dart';
 
 class BotBoxDetails extends StatelessWidget {

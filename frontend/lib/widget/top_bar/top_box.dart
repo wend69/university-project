@@ -1,22 +1,20 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:ok/style/theme.dart'; // Ensure this path is correct
+import 'package:ok/style/theme.dart'; 
 import 'package:ok/api_service.dart';
-import 'package:ok/widget/top_bar/top_bar_details.dart'; // Ensure this path is correct
-
-
+import 'package:ok/widget/top_bar/top_bar_details.dart'; 
 
 class TopBox extends StatelessWidget {
-  final AnalyticsRow liveData; // Solid link to API
+  final AnalyticsRow liveData; 
 
   const TopBox({super.key, required this.liveData});
 
   @override
   Widget build(BuildContext context) {
-    double topBoxWidth = MediaQuery.of(context).size.width;
+    // Using screenWidth ensures it doesn't look messy on smaller windows
+    double screenWidth = MediaQuery.of(context).size.width;
 
-    // Mapping API data to the UI list
     List topBarDatas = [
       {
         "title": "New Subscribers", 
@@ -42,16 +40,21 @@ class TopBox extends StatelessWidget {
 
     return Container(
       height: 180,
-      width: topBoxWidth > 1430 ? topBoxWidth - 531 : 900,
+      // Fixed: Now stays 95% of the screen width regardless of 1430px limit
+      width: screenWidth * 0.95, 
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            MainTheme.boxColor.withValues(alpha: 0.2),
-            MainTheme.boxColor,
-            MainTheme.boxColor.withValues(alpha: 0.2),
+            const Color(0xFF00FF88).withValues(alpha: 0.1), // Light Neon Green
+            const Color(0xFF00FF88).withValues(alpha: 0.2), 
+            const Color(0xFF00FF88).withValues(alpha: 0.1),
           ],
         ),
-        border: Border.all(color: MainTheme.boxBorderColor, width: 1.5),
+        // Subtle neon green border
+        border: Border.all(
+          color: const Color(0xFF00FF88).withValues(alpha: 0.4), 
+          width: 1.5
+        ),
         borderRadius: const BorderRadius.all(Radius.circular(15)),
       ),
       child: Row(
@@ -88,8 +91,9 @@ class TopBox extends StatelessWidget {
   Widget _divider() {
     return Container(
       width: 1, 
-      color: MainTheme.primaryColor.withValues(alpha: 0.5), 
-      height: 100
+      // Matching the divider to the neon green theme
+      color: const Color(0xFF00FF88).withValues(alpha: 0.3), 
+      height: 70 // Shorter height looks more professional
     );
   }
 }

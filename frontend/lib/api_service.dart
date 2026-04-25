@@ -1,6 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+
+
+
 // This is your data model - matches your Postgres table
 class AnalyticsRow {
   final String id;
@@ -37,15 +40,25 @@ class AnalyticsRow {
     );
   }
 }
-// This is your "Fetcher"
+
 Future<AnalyticsRow> fetchLatestAnalytics() async {
   final response = await http.get(Uri.parse('http://127.0.0.1:8000/analytics/latest'));
   
   if (response.statusCode == 200) {
-    List<dynamic> body = jsonDecode(response.body);
-    return AnalyticsRow.fromJson(body[0]);
+    final decodedData = jsonDecode(response.body);
+    
+    // Check if the response is a list and grab the first item
+    if (decodedData is List) {
+      if (decodedData.isNotEmpty) {
+        return AnalyticsRow.fromJson(decodedData[0]); // <--- This fixes the JSArray error
+      } else {
+        throw Exception('Database returned an empty list');
+      }
+    }
+    
+    // If it's already a map, just return it
+    return AnalyticsRow.fromJson(decodedData);
   } else {
-    throw Exception('Failed to load data');
+    throw Exception('Failed to load latest analytics');
   }
 }
-

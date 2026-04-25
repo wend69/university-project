@@ -14,8 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ok',
+      debugShowCheckedModeBanner: false,
       theme: MainTheme.appTheme,
-      home: const AnalyticsPage(),
+      home: const Scaffold(
+        body: AnalyticsPage(), // Starting with AnalyticsPage
+      ),
     );
   }
 }

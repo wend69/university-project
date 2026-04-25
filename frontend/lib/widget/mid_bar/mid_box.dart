@@ -26,8 +26,8 @@ class MidBox extends StatelessWidget {
             MainTheme.boxColor.withOpacity(0.2),
           ],
         ),
-        border: Border.all(color: MainTheme.boxBorderColor, width: 1.5),
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        border: Border.all(color: const Color.fromARGB(255, 244, 244, 244), width: 1.5),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 16.0, left: 34, right: 34),
